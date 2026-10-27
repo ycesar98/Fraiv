@@ -279,7 +279,7 @@ Reparto observado en Trello durante la preparación de este documento:
 | Tres en raya | Marc Osma López |
 | Memory | Gianella |
 | Ajedrez | Nayara Yebra Bustos |
-| Documento MD | Yahya Barrhel |
+| Documento MD | Yari |
 | Descripción de la web y de los juegos | Yahya Barrhel |
 | Menú de usuario | Pendiente de asignación |
 | Prueba final de funcionamiento | Pendiente de asignación |
@@ -293,23 +293,36 @@ Los estados de las tarjetas se consultarán en Trello para evitar que este docum
 
 ## 9. GitHub y revisión
 
-### Confirmado
+### Organización acordada
 
-- Repositorio creado: https://github.com/ycesar98/Fraiv
-- Ya existen las ramas main y develop.
-- Cada persona trabajará en su propia rama.
-- Yari y el equipo revisarán los cambios.
+- Repositorio: https://github.com/ycesar98/Fraiv
+- main conserva la versión estable del proyecto.
+- develop reúne los cambios revisados del equipo.
+- Cada tarea se desarrolla en su propia rama.
+- Las ramas de trabajo parten de develop actualizada.
+- Yari y el equipo revisan los cambios antes de incorporarlos.
 
-### Flujo propuesto
+### Flujo de trabajo
 
-1. Crear el repositorio y acordar la estructura común.
-2. Cada persona desarrolla su tarea en su rama.
-3. Antes de integrar, presenta los cambios y explica qué archivos ha modificado.
-4. Solicita la revisión de Yari mediante una solicitud para incorporar los cambios —pull request—.
-5. Los cambios se incorporan a la rama principal después de la revisión.
-6. Se actualiza Trello para reflejar el progreso real.
+1. Actualizar develop y crear desde ella una rama para la tarea.
+2. Realizar los cambios y guardarlos mediante commits.
+3. Subir la rama a GitHub.
+4. Abrir una pull request hacia develop para solicitar revisión.
+5. Incorporar los cambios a develop después de la revisión.
+6. Actualizar la tarjeta correspondiente de Trello.
+7. Incorporar develop a main cuando la versión conjunta esté revisada y sea estable.
 
-**Pendiente:** nombres de las ramas personales, función de develop, procedimiento final de integración y publicación de la web.
+### Nombres de ramas
+
+Utilizar el nombre de la persona y una descripción breve de la tarea, en minúsculas y separados por guiones.
+
+Ejemplos: yari-md, yari-inicio, yari-marca y gianella-memory.
+
+### Correcciones menores de documentación
+
+Las erratas, tildes o enlaces incorrectos pueden corregirse directamente en develop, avisando al equipo. Los cambios de requisitos, responsabilidades o reglas de colaboración utilizan una rama por tarea y revisión.
+
+**Pendiente:** concretar los nombres de las ramas del resto del equipo y la publicación de la web.
 
 ## 10. Criterios comunes propuestos para considerar una tarea terminada
 
@@ -351,6 +364,6 @@ La organización de las pruebas y sus responsables se decidirán más adelante.
 | Responsable del perfil y de la puntuación común | Para más adelante |
 | Accesibilidad, organización de pruebas y responsables | Para más adelante |
 | Estructura de archivos y estilos comunes | Propuesta en este documento |
-| Flujo de integración, ramas personales y publicación | Pendiente / propuesta |
+| Nombres de ramas por tarea y publicación de la web | Pendiente |
 
 Una decisión pendiente no impide avanzar en partes independientes, pero debe resolverse antes de cerrar la funcionalidad a la que afecta.
