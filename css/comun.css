@@ -47,14 +47,89 @@ h1, h2, h3 {
     gap: 12px;
 }
 
-.perfil {
-    text-align: right;
-    color: var(--titulo);
+.perfil-contenedor {
+    position: relative;
+    display: inline-block;
 }
 
-.perfil p {
-    margin: 0;
+.perfil-trigger {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.avatar-perfil {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--ilus-resaltado);
+    transition: transform 0.2s ease;
+}
+
+.perfil-trigger:hover .avatar-perfil {
+    transform: scale(1.1);
+}
+
+.perfil-dropdown {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background-color: var(--panel);
+    backdrop-filter: blur(10px);
+    color: var(--titulo);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 254, 0.1);
+    min-width: 220px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 100;
+    text-align: left;
+}
+
+.perfil-dropdown.visible {
+    display: block;
+}
+
+.perfil-dropdown p {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+}
+
+.perfil-dropdown span {
+    font-weight: bold;
+    color: var(--ilus-resaltado);
+}
+
+.formulario-nombre {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-nombre {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--parrafo);
+    color: var(--titulo);
+    padding: 8px;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.boton-guardar {
+    background-color: var(--boton-fondo);
+    color: var(--boton-texto);
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
+
 
 main {
     box-sizing: border-box;
