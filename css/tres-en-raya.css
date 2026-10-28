@@ -1,0 +1,188 @@
+.pagina-tres-en-raya {
+    min-height: 100vh;
+    background: var(--fondo);
+    color: var(--parrafo);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+}
+
+.pagina-tres-en-raya *,
+.pagina-tres-en-raya *::before,
+.pagina-tres-en-raya *::after {
+    box-sizing: border-box;
+}
+
+.pagina-tres-en-raya .cabecera {
+    border-bottom: 1px solid rgba(167, 169, 190, .25);
+}
+
+.pagina-tres-en-raya .cabecera nav {
+    margin-right: auto;
+}
+
+.pagina-tres-en-raya .cabecera nav a {
+    color: var(--parrafo);
+}
+
+.pagina-tres-en-raya .cabecera nav a:hover {
+    color: var(--titulo);
+}
+
+.pagina-tres-en-raya .cabecera a:focus-visible,
+.pagina-tres-en-raya .celda:focus-visible {
+    outline: 3px solid var(--titulo);
+    outline-offset: 3px;
+}
+
+.pagina-tres-en-raya .contenido {
+    width: min(100%, 620px);
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+}
+
+.pagina-tres-en-raya .titulo-juego {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.pagina-tres-en-raya h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.pagina-tres-en-raya .etiqueta {
+    border: 1px solid var(--boton-fondo);
+    border-radius: 999px;
+    color: var(--titulo);
+    padding: 2px 12px;
+    font-size: .85rem;
+}
+
+.pagina-tres-en-raya .instrucciones,
+.pagina-tres-en-raya .dato {
+    background: var(--panel);
+    border-radius: 12px;
+}
+
+.pagina-tres-en-raya .instrucciones {
+    margin-bottom: 16px;
+    padding: 10px 16px;
+}
+
+.pagina-tres-en-raya .instrucciones summary {
+    color: var(--titulo);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.pagina-tres-en-raya .instrucciones ul {
+    margin: 10px 0 4px;
+    padding-left: 20px;
+}
+
+.pagina-tres-en-raya .instrucciones li {
+    margin-bottom: 6px;
+}
+
+.pagina-tres-en-raya .instrucciones b {
+    color: var(--titulo);
+}
+
+.pagina-tres-en-raya .marcador {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.pagina-tres-en-raya .dato {
+    padding: 8px 12px;
+    text-align: center;
+}
+
+.pagina-tres-en-raya .dato span {
+    display: block;
+    font-size: .9rem;
+}
+
+.pagina-tres-en-raya .dato b {
+    color: var(--titulo);
+    font-size: 1.4rem;
+}
+
+.pagina-tres-en-raya .tablero {
+    display: grid;
+    width: min(100%, 360px);
+    aspect-ratio: 1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0 auto;
+}
+
+.pagina-tres-en-raya .celda {
+    min-width: 0;
+    min-height: 0;
+    border: 1px solid rgba(167, 169, 190, .4);
+    border-radius: 10px;
+    background: var(--panel);
+    color: var(--titulo);
+    font: inherit;
+    font-size: clamp(2.5rem, 14vw, 4rem);
+    line-height: 1;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color .2s ease, transform .1s ease;
+}
+
+.pagina-tres-en-raya .celda:hover:not(:disabled) {
+    background: rgba(255, 137, 6, .18);
+}
+
+.pagina-tres-en-raya .celda:active:not(:disabled) {
+    transform: scale(.97);
+}
+
+.pagina-tres-en-raya .celda:disabled {
+    cursor: default;
+}
+
+.pagina-tres-en-raya .estado {
+    min-height: 1.5em;
+    margin: 18px 0;
+    color: var(--titulo);
+    text-align: center;
+    font-weight: 700;
+}
+
+.pagina-tres-en-raya .acciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.pagina-tres-en-raya .boton-secundario {
+    background: var(--panel);
+    color: var(--titulo);
+    text-decoration: none;
+}
+
+.pagina-tres-en-raya .boton-secundario:hover {
+    box-shadow: 0 0 18px rgba(255, 137, 6, .35);
+}
+
+@media (max-width: 420px) {
+    .pagina-tres-en-raya .cabecera {
+        padding: 12px 16px;
+    }
+
+    .pagina-tres-en-raya .perfil {
+        width: 100%;
+        text-align: left;
+    }
+}
