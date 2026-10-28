@@ -203,14 +203,22 @@ Esta configuración sustituye la indicación anterior de 15 intentos por partida
 | Títulos | `#FFFFFE` |
 | Párrafos | `#A7A9BE` |
 | Fondo de botones | `#FF8906` |
-| Texto de botones, según la paleta facilitada | `#FFFFFE` |
 | Trazo de ilustraciones | `#000000` |
 | Color principal de ilustraciones | `#FFFFFE` |
 | Resaltado de ilustraciones | `#FF8906` |
 | Color secundario de ilustraciones | `#F25F4C` |
 | Color terciario de ilustraciones | `#E53170` |
+| Texto de botones | `#0F0E17` |
 
 Los colores secundario y terciario de ilustraciones no implican por sí solos estados de error, victoria o derrota. Esos usos todavía no están acordados.
+
+### Base visual implementada en Inicio
+
+- css/comun.css contiene los estilos generales, la cabecera, el perfil, los botones y el footer.
+- css/inicio.css contiene la presentación, el catálogo, las tarjetas y su distribución adaptable.
+- Las clases compartidas son cabecera, marca, perfil, boton y pie-pagina.
+- Los botones utilizan fondo #FF8906 y texto #0F0E17. Al pasar el cursor muestran un halo naranja; al recibir foco mediante teclado muestran un contorno claro.
+- El nombre y los puntos del perfil son provisionales; su funcionamiento con JavaScript sigue pendiente.
 
 ### Propuestas para mantener la cohesión
 
@@ -218,7 +226,6 @@ Los colores secundario y terciario de ilustraciones no implican por sí solos es
 - Compartir el estilo de cabecera, perfil, botones, tarjetas, instrucciones y mensajes de resultado.
 - Reservar el CSS de cada juego para su tablero y sus elementos específicos.
 - Acordar tamaños de títulos, separación entre bloques, bordes y apariencia de los controles antes de integrar todas las páginas.
-- Revisar la legibilidad del texto claro sobre el botón naranja. Como alternativa pendiente de aprobación, valorar texto oscuro `#0F0E17` sobre `#FF8906`.
 
 **Pendiente para más adelante:** compromiso de accesibilidad y sus criterios concretos, incluyendo teclado, foco visible y contraste. No se declara un nivel de cumplimiento que todavía no se haya acordado y comprobado.
 

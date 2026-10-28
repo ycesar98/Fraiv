@@ -1,0 +1,51 @@
+.presentacion {
+    text-align: center;
+    padding: 32px 0;
+    margin-bottom: 48px;
+}
+
+.presentacion h1 {
+    font-size: 40px;
+    margin: 0 0 16px;
+}
+
+.presentacion p {
+    margin: 0;
+}
+.lista-juegos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 600px) {
+    .lista-juegos {
+        grid-template-columns: 1fr;
+    }
+}
+.tarjeta-juego {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    border: 1px solid #a7a9be;
+    border-radius: 12px;
+}
+
+.tarjeta-juego h3,
+.tarjeta-juego p {
+    margin: 0;
+}
+
+.tarjeta-juego .boton {
+    margin-top: auto;
+}
+.tarjeta-juego .dificultad {
+    align-self: flex-start;
+    padding: 4px 10px;
+    border: 1px solid #ff8906;
+    border-radius: 999px;
+    color: #ff8906;
+    font-size: 14px;
+    font-weight: bold;
+}
