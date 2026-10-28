@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sopa de Letras</title>
+    <link rel="stylesheet" href="comun.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px;">
+            <a href="../index.html" class="logo" style="width: 50px; height: 50px; background-color: #FFFFFE; border: 3px solid #000000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #0F0E17; font-size: 1.5rem; text-decoration: none;">F</a>
+            <h1 style="color: #FFFFFE; margin: 0; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 3px; text-align: center; flex: 1;">Sopa de Letras</h1>
+            <div class="user-menu-container" style="position: relative; display: flex; align-items: center;">
+                <div class="points-box" style="background-color: #F25F4C; color: #FFFFFE; padding: 5px 15px; border-radius: 20px; font-weight: bold; border: 2px solid #000000;">
+                    Puntos: <span id="global-points">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="rules">
+            <h2>Reglas del Juego</h2>
+            <p>Encuentra todas las palabras ocultas en la cuadrícula. Las palabras pueden estar en horizontal, vertical o diagonal. Selecciona una palabra deslizando el ratón o tocando las letras. ¡Ten cuidado con el tiempo!</p>
+        </section>
+
+        <section id="setup">
+            <div class="setup-container">
+                <label for="time-limit">Elige el tiempo límite:</label>
+                <select id="time-limit">
+                    <option value="60">60 segundos</option>
+                    <option value="90">90 segundos</option>
+                    <option value="120">120 segundos</option>
+                </select>
+                <button id="start-game-btn">Empezar Partida</button>
+            </div>
+        </section>
+
+        <section id="game-container" class="hidden">
+            <div id="game-stats">
+                <div class="stat">Tiempo: <span id="timer">0</span>s</div>
+                <div class="stat">Puntos: <span id="current-points">0</span></div>
+            </div>
+
+            <div id="grid-container">
+                <div id="letter-grid"></div>
+            </div>
+
+            <div id="word-list-container">
+                <h3>Palabras a buscar:</h3>
+                <ul id="word-list"></ul>
+            </div>
+
+            <div class="game-controls">
+                <button id="reset-btn">Reiniciar</button>
+                <button id="back-btn">Volver al Inicio</button>
+            </div>
+        </section>
+
+        <div id="overlay" class="hidden">
+            <div class="modal">
+                <h2 id="modal-title"></h2>
+                <p id="modal-message"></p>
+                <button id="modal-btn">Continuar</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="sopa-de-letras.js"></script>
+</body>
+</html>
