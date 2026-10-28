@@ -1,7 +1,7 @@
 .presentacion {
     text-align: center;
-    padding: 32px 0;
-    margin-bottom: 48px;
+    padding: 16px 0;
+    margin-bottom: 32px;
 }
 
 .presentacion h1 {
@@ -12,24 +12,37 @@
 .presentacion p {
     margin: 0;
 }
+
+.catalogo {
+    margin-bottom: 16px;
+}
+
 .lista-juegos {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
 }
 
-@media (max-width: 600px) {
-    .lista-juegos {
-        grid-template-columns: 1fr;
-    }
-}
 .tarjeta-juego {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
     gap: 16px;
-    padding: 24px;
+    padding: 16px;
     border: 1px solid #a7a9be;
     border-radius: 12px;
+}
+
+.imagen-juego {
+    width: 100%;
+    height: auto;
+    align-self: center;
+}
+
+.contenido-juego {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
 }
 
 .tarjeta-juego h3,
@@ -48,4 +61,15 @@
     color: #ff8906;
     font-size: 14px;
     font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .lista-juegos {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-juego {
+        grid-template-columns: 100px minmax(0, 1fr);
+        gap: 12px;
+    }
 }
