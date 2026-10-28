@@ -194,7 +194,7 @@ Esta configuración sustituye la indicación anterior de 15 intentos por partida
 
 - **Nombre:** Fraiv.
 - **Tipografía:** Arial.
-- **Logo:** en proceso.
+- **Logo en Inicio:** versión de borde blanco, guardada en assets/logos/logo-fraiv-bordeblanco.png. La validación definitiva de la marca por el equipo sigue pendiente.
 - **Presentación:** coherente en todas las páginas y adaptable a ordenador y móvil.
 
 | Uso | Color |

@@ -26,12 +26,15 @@ h1, h2, h3 {
 }
 
 .cabecera {
+    box-sizing: border-box;
+    max-width: 1400px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 16px;
-    padding: 20px 24px;
+    padding: 12px 24px;
 }
 
 .marca {
@@ -39,6 +42,9 @@ h1, h2, h3 {
     font-size: 28px;
     font-weight: bold;
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .perfil {
@@ -88,4 +94,9 @@ main {
 
 .pie-pagina p {
     margin: 0;
+}
+
+.logo-fraiv {
+    height: 135px;
+    width: auto;
 }
