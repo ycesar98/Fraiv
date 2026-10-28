@@ -1,6 +1,6 @@
 # Fraiv — Base compartida del proyecto
 
-**Versión:** 0.1 · Documento de trabajo  
+**Versión:** 0.3 · Documento de trabajo  
 **Fecha:** 27 de octubre de 2026  
 **Destinatarios:** integrantes del equipo y asistentes de IA que colaboren en el proyecto.
 
@@ -100,6 +100,8 @@ En Memory y Sopa de letras, el empate no tiene una condición definida actualmen
 
 En Tres en raya, los puntos se aplican **una sola vez al terminar la serie**, no después de cada ronda.
 
+En Memory, los puntos se aplican **una sola vez al terminar la partida completa**. Superar una ronda no suma puntos por separado.
+
 ### Condiciones necesarias para integrar los juegos
 
 - Todos los juegos deben utilizar el mismo perfil y la misma puntuación acumulada.
@@ -154,15 +156,19 @@ Esta regla sustituye la formulación anterior «al mejor de tres»: no se trata 
 
 - Juego individual de encontrar parejas.
 - Dificultad fija: fácil.
-- Se ha indicado una configuración de seis parejas por tablero, es decir, doce cartas.
-- La temática se elige de manera aleatoria. Ejemplos: verduras, animales, frutas, deporte y transporte. La lista no está cerrada.
-- Cada partida dispone de 15 intentos.
+- Cada partida consta de **cuatro rondas consecutivas**. Los cuatro packs se corresponden con esas cuatro rondas.
+- Cada ronda presenta seis parejas, es decir, doce cartas.
+- La temática de cada ronda se elige de manera aleatoria. Ejemplos: verduras, animales, frutas, deporte y transporte. La cantidad de temáticas disponibles queda abierta.
+- Cada ronda comienza con **10 intentos**.
 - Cada selección de dos cartas cuenta como un intento, tanto si coinciden como si fallan.
-- Victoria: +10 puntos. Derrota: −10 puntos.
+- Al encontrar las seis parejas, se supera la ronda y se avanza a la siguiente; completar la cuarta ronda supone ganar la partida.
+- Si se agotan los intentos de una ronda sin completar sus parejas, se pierde la partida completa y no se continúa a la siguiente ronda.
+- Completar la última pareja en el intento 10 permite superar la ronda.
+- Ganar la partida completa suma **10 puntos en total**.
+- Perder la partida completa resta **10 puntos en total**, con independencia de cuántas rondas se hayan superado.
+- Las rondas individuales no modifican la puntuación acumulada del perfil.
 
-**Regla propuesta para concretar el final:** se gana al encontrar las seis parejas dentro de los 15 intentos; se pierde al consumirlos sin completar el tablero. Completar la última pareja en el intento 15 cuenta como victoria.
-
-**Pendiente:** aclarar la referencia inicial a «cuatro packs de seis parejas»: si describe cuatro conjuntos de contenido disponibles u otra organización. No debe interpretarse automáticamente como cuatro fases consecutivas ni como dificultades diferentes.
+Esta configuración sustituye la indicación anterior de 15 intentos por partida.
 
 ### 5.4. Sopa de letras
 
@@ -173,13 +179,14 @@ Esta regla sustituye la formulación anterior «al mejor de tres»: no se trata 
 - Tablero de 10 × 10 letras.
 - Se deben encontrar seis palabras.
 - Las palabras pueden aparecer en horizontal, vertical y diagonal.
+- No se permiten palabras al revés.
 - Tiempo máximo por partida: 120 segundos.
 - Se gana encontrando todas las palabras antes de que termine el tiempo.
 - Victoria: +20 puntos. Derrota: −20 puntos.
 
 **Consecuencia de la condición de victoria:** si termina el tiempo y quedan palabras por encontrar, la partida se considera perdida.
 
-**Pendiente:** temáticas y palabras disponibles; si se permiten palabras al revés; procedimiento de selección de letras en ordenador y móvil.
+**Pendiente:** temáticas y palabras disponibles; procedimiento de selección de letras en ordenador y móvil.
 
 ## 6. Identidad visual
 
@@ -196,14 +203,22 @@ Esta regla sustituye la formulación anterior «al mejor de tres»: no se trata 
 | Títulos | `#FFFFFE` |
 | Párrafos | `#A7A9BE` |
 | Fondo de botones | `#FF8906` |
-| Texto de botones, según la paleta facilitada | `#FFFFFE` |
 | Trazo de ilustraciones | `#000000` |
 | Color principal de ilustraciones | `#FFFFFE` |
 | Resaltado de ilustraciones | `#FF8906` |
 | Color secundario de ilustraciones | `#F25F4C` |
 | Color terciario de ilustraciones | `#E53170` |
+| Texto de botones | `#0F0E17` |
 
 Los colores secundario y terciario de ilustraciones no implican por sí solos estados de error, victoria o derrota. Esos usos todavía no están acordados.
+
+### Base visual implementada en Inicio
+
+- css/comun.css contiene los estilos generales, la cabecera, el perfil, los botones y el footer.
+- css/inicio.css contiene la presentación, el catálogo, las tarjetas y su distribución adaptable.
+- Las clases compartidas son cabecera, marca, perfil, boton y pie-pagina.
+- Los botones utilizan fondo #FF8906 y texto #0F0E17. Al pasar el cursor muestran un halo naranja; al recibir foco mediante teclado muestran un contorno claro.
+- El nombre y los puntos del perfil son provisionales; su funcionamiento con JavaScript sigue pendiente.
 
 ### Propuestas para mantener la cohesión
 
@@ -211,7 +226,6 @@ Los colores secundario y terciario de ilustraciones no implican por sí solos es
 - Compartir el estilo de cabecera, perfil, botones, tarjetas, instrucciones y mensajes de resultado.
 - Reservar el CSS de cada juego para su tablero y sus elementos específicos.
 - Acordar tamaños de títulos, separación entre bloques, bordes y apariencia de los controles antes de integrar todas las páginas.
-- Revisar la legibilidad del texto claro sobre el botón naranja. Como alternativa pendiente de aprobación, valorar texto oscuro `#0F0E17` sobre `#FF8906`.
 
 **Pendiente para más adelante:** compromiso de accesibilidad y sus criterios concretos, incluyendo teclado, foco visible y contraste. No se declara un nivel de cumplimiento que todavía no se haya acordado y comprobado.
 
@@ -272,7 +286,7 @@ Reparto observado en Trello durante la preparación de este documento:
 | Tres en raya | Marc Osma López |
 | Memory | Gianella |
 | Ajedrez | Nayara Yebra Bustos |
-| Documento MD | Yahya Barrhel |
+| Documento MD | Yari |
 | Descripción de la web y de los juegos | Yahya Barrhel |
 | Menú de usuario | Pendiente de asignación |
 | Prueba final de funcionamiento | Pendiente de asignación |
@@ -286,22 +300,36 @@ Los estados de las tarjetas se consultarán en Trello para evitar que este docum
 
 ## 9. GitHub y revisión
 
-### Confirmado
+### Organización acordada
 
-- El repositorio todavía está pendiente de creación.
-- Cada persona trabajará en su propia rama.
-- Yari revisará los cambios.
+- Repositorio: https://github.com/ycesar98/Fraiv
+- main conserva la versión estable del proyecto.
+- develop reúne los cambios revisados del equipo.
+- Cada tarea se desarrolla en su propia rama.
+- Las ramas de trabajo parten de develop actualizada.
+- Yari y el equipo revisan los cambios antes de incorporarlos.
 
-### Flujo propuesto
+### Flujo de trabajo
 
-1. Crear el repositorio y acordar la estructura común.
-2. Cada persona desarrolla su tarea en su rama.
-3. Antes de integrar, presenta los cambios y explica qué archivos ha modificado.
-4. Solicita la revisión de Yari mediante una solicitud para incorporar los cambios —pull request—.
-5. Los cambios se incorporan a la rama principal después de la revisión.
-6. Se actualiza Trello para reflejar el progreso real.
+1. Actualizar develop y crear desde ella una rama para la tarea.
+2. Realizar los cambios y guardarlos mediante commits.
+3. Subir la rama a GitHub.
+4. Abrir una pull request hacia develop para solicitar revisión.
+5. Incorporar los cambios a develop después de la revisión.
+6. Actualizar la tarjeta correspondiente de Trello.
+7. Incorporar develop a main cuando la versión conjunta esté revisada y sea estable.
 
-**Pendiente:** nombre y enlace del repositorio, nombres de ramas, procedimiento final de integración y publicación de la web.
+### Nombres de ramas
+
+Utilizar el nombre de la persona y una descripción breve de la tarea, en minúsculas y separados por guiones.
+
+Ejemplos: yari-md, yari-inicio, yari-marca y gianella-memory.
+
+### Correcciones menores de documentación
+
+Las erratas, tildes o enlaces incorrectos pueden corregirse directamente en develop, avisando al equipo. Los cambios de requisitos, responsabilidades o reglas de colaboración utilizan una rama por tarea y revisión.
+
+**Pendiente:** concretar los nombres de las ramas del resto del equipo y la publicación de la web.
 
 ## 10. Criterios comunes propuestos para considerar una tarea terminada
 
@@ -337,14 +365,12 @@ La organización de las pruebas y sus responsables se decidirán más adelante.
 | Logo definitivo | En proceso |
 | Reglas exactas del ajedrez simplificado y comportamiento del ordenador | Pendiente |
 | Inicio de turnos y comportamiento del ordenador en Tres en raya | Pendiente |
-| Significado de los cuatro packs iniciales de Memory | Pendiente |
-| Confirmación del final de Memory y del caso del intento 15 | Propuesta en este documento |
-| Palabras y selección en Sopa de letras; posibilidad de palabras al revés | Pendiente |
+| Temáticas, palabras y selección en Sopa de letras | Pendiente |
 | Comportamiento de los juegos con temporizador al cambiar de pestaña | Pendiente |
 | Creación o edición del perfil y estructura compartida de sus datos | Para más adelante |
 | Responsable del perfil y de la puntuación común | Para más adelante |
 | Accesibilidad, organización de pruebas y responsables | Para más adelante |
 | Estructura de archivos y estilos comunes | Propuesta en este documento |
-| Repositorio, flujo de integración y publicación | Pendiente / propuesta |
+| Nombres de ramas por tarea y publicación de la web | Pendiente |
 
 Una decisión pendiente no impide avanzar en partes independientes, pero debe resolverse antes de cerrar la funcionalidad a la que afecta.
