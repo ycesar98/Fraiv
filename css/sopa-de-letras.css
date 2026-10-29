@@ -1,0 +1,448 @@
+
+/* ========================================
+   SOPA DE LETRAS · FRAIV
+   Estilo visual basado en Tres en Raya
+   ======================================== */
+
+.pagina-sopa-de-letras {
+    min-height: 100vh;
+    background: var(--fondo);
+    color: var(--parrafo);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+}
+
+.pagina-sopa-de-letras *,
+.pagina-sopa-de-letras *::before,
+.pagina-sopa-de-letras *::after {
+    box-sizing: border-box;
+}
+
+/* CABECERA */
+
+.pagina-sopa-de-letras .cabecera {
+    border-bottom: 1px solid rgba(167, 169, 190, .25);
+}
+
+.pagina-sopa-de-letras .cabecera nav {
+    margin-right: auto;
+}
+
+.pagina-sopa-de-letras .cabecera nav a {
+    color: var(--parrafo);
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.pagina-sopa-de-letras .cabecera nav a:hover {
+    color: var(--titulo);
+}
+
+.pagina-sopa-de-letras .cabecera a:focus-visible,
+.pagina-sopa-de-letras button:focus-visible,
+.pagina-sopa-de-letras select:focus-visible {
+    outline: 3px solid var(--titulo);
+    outline-offset: 3px;
+}
+
+/* CONTENIDO PRINCIPAL */
+
+.pagina-sopa-de-letras .contenido {
+    width: min(100%, 620px);
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+}
+
+/* TÍTULO */
+
+.pagina-sopa-de-letras .titulo-juego {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.pagina-sopa-de-letras h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--titulo);
+}
+
+.pagina-sopa-de-letras .etiqueta {
+    border: 1px solid var(--boton-fondo);
+    border-radius: 999px;
+    color: var(--titulo);
+    padding: 2px 12px;
+    font-size: .85rem;
+}
+
+/* INSTRUCCIONES */
+
+.pagina-sopa-de-letras .instrucciones,
+.pagina-sopa-de-letras .stat,
+.pagina-sopa-de-letras #word-list-container {
+    background: var(--panel);
+    border-radius: 12px;
+}
+
+.pagina-sopa-de-letras .instrucciones {
+    margin-bottom: 16px;
+    padding: 10px 16px;
+}
+
+.pagina-sopa-de-letras .instrucciones summary {
+    color: var(--titulo);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.pagina-sopa-de-letras .instrucciones ul {
+    margin: 10px 0 4px;
+    padding-left: 20px;
+}
+
+.pagina-sopa-de-letras .instrucciones li {
+    margin-bottom: 6px;
+}
+
+.pagina-sopa-de-letras .instrucciones b {
+    color: var(--titulo);
+}
+
+/* CONFIGURACIÓN DE PARTIDA */
+
+.pagina-sopa-de-letras #setup {
+    margin-bottom: 16px;
+}
+
+.pagina-sopa-de-letras .setup-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--panel);
+    border-radius: 12px;
+}
+
+.pagina-sopa-de-letras .setup-container label {
+    color: var(--titulo);
+    font-weight: 700;
+}
+
+.pagina-sopa-de-letras #time-limit {
+    min-width: 0;
+    max-width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(167, 169, 190, .4);
+    border-radius: 8px;
+    background: var(--fondo);
+    color: var(--titulo);
+    font: inherit;
+    cursor: pointer;
+}
+
+.pagina-sopa-de-letras #time-limit option {
+    background: var(--fondo);
+    color: var(--titulo);
+}
+
+/* BOTONES */
+
+.pagina-sopa-de-letras #start-game-btn,
+.pagina-sopa-de-letras .game-controls button,
+.pagina-sopa-de-letras #modal-btn {
+    display: inline-block;
+    padding: 12px 16px;
+    background: var(--boton-fondo);
+    color: var(--boton-texto);
+    border: 0;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow .2s ease, transform .1s ease;
+}
+
+.pagina-sopa-de-letras #start-game-btn:hover,
+.pagina-sopa-de-letras .game-controls button:hover,
+.pagina-sopa-de-letras #modal-btn:hover {
+    box-shadow: 0 0 18px rgba(255, 137, 6, .6);
+}
+
+.pagina-sopa-de-letras #start-game-btn:active,
+.pagina-sopa-de-letras .game-controls button:active,
+.pagina-sopa-de-letras #modal-btn:active {
+    transform: scale(.98);
+}
+
+.pagina-sopa-de-letras #back-btn {
+    background: var(--panel);
+    color: var(--titulo);
+}
+
+.pagina-sopa-de-letras #back-btn:hover {
+    box-shadow: 0 0 18px rgba(255, 137, 6, .6);
+}
+
+/* ESTADÍSTICAS */
+
+.pagina-sopa-de-letras #game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.pagina-sopa-de-letras #game-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.pagina-sopa-de-letras .stat {
+    padding: 8px 12px;
+    text-align: center;
+}
+
+.pagina-sopa-de-letras .stat span {
+    color: var(--titulo);
+    font-weight: 700;
+}
+
+/* CUADRÍCULA DE LETRAS */
+
+.pagina-sopa-de-letras #grid-container {
+    width: min(100%, 420px);
+    padding: 8px;
+    background: var(--panel);
+    border-radius: 12px;
+    user-select: none;
+}
+
+.pagina-sopa-de-letras #letter-grid {
+    display: grid;
+    width: 100%;
+    aspect-ratio: 1;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    grid-template-rows: repeat(10, minmax(0, 1fr));
+    gap: 8px;
+}
+
+/* LETRAS */
+
+.pagina-sopa-de-letras .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    aspect-ratio: 1;
+    border: 1px solid rgba(167, 169, 190, .4);
+    border-radius: 8px;
+    background: var(--panel);
+    color: var(--titulo);
+    font: inherit;
+    font-size: clamp(10px, 2.5vw, 17px);
+    line-height: 1;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color .2s ease, transform .1s ease;
+}
+
+.pagina-sopa-de-letras .cell:hover {
+    background: rgba(255, 137, 6, .18);
+}
+
+.pagina-sopa-de-letras .cell:active {
+    transform: scale(.97);
+}
+
+.pagina-sopa-de-letras .cell.selected {
+    background: rgba(255, 137, 6, .3);
+    color: var(--titulo);
+}
+
+.pagina-sopa-de-letras .cell.found {
+    background: rgba(242, 95, 76, .28);
+    color: var(--titulo);
+}
+
+/* LISTA DE PALABRAS */
+
+.pagina-sopa-de-letras #word-list-container {
+    width: 100%;
+    padding: 14px 16px;
+    text-align: center;
+}
+
+.pagina-sopa-de-letras #word-list-container h3 {
+    margin: 0 0 12px;
+    color: var(--titulo);
+    font-size: 1.05rem;
+}
+
+.pagina-sopa-de-letras #word-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagina-sopa-de-letras #word-list li {
+    padding: 5px 10px;
+    border-bottom: 1px solid rgba(167, 169, 190, .4);
+    border-radius: 4px;
+    color: var(--titulo);
+    font-weight: 600;
+    transition: opacity .2s ease, color .2s ease;
+}
+
+.pagina-sopa-de-letras #word-list li.found {
+    color: var(--parrafo);
+    border-bottom-color: rgba(242, 95, 76, .65);
+    text-decoration: line-through;
+    opacity: .6;
+}
+
+/* ACCIONES */
+
+.pagina-sopa-de-letras .game-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+/* VENTANA DE RESULTADOS */
+
+.pagina-sopa-de-letras #overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(0, 0, 0, .75);
+    z-index: 1000;
+}
+
+.pagina-sopa-de-letras .modal {
+    width: min(100%, 450px);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 24px;
+    background: var(--fondo);
+    border: 1px solid rgba(167, 169, 190, .25);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .45);
+    text-align: center;
+    color: var(--parrafo);
+}
+
+.pagina-sopa-de-letras .modal h2 {
+    margin-top: 0;
+    color: var(--titulo);
+    font-size: 1.8rem;
+}
+
+.pagina-sopa-de-letras .modal p {
+    line-height: 1.6;
+}
+
+/* ELEMENTOS OCULTOS */
+
+.hidden {
+    display: none !important;
+}
+
+/* ADAPTACIÓN A MÓVILES */
+
+@media (max-width: 600px) {
+    .pagina-sopa-de-letras .cabecera {
+        padding: 12px 16px;
+    }
+
+    .pagina-sopa-de-letras .contenido {
+        padding: 24px 16px 32px;
+    }
+
+    .pagina-sopa-de-letras .setup-container {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .pagina-sopa-de-letras #time-limit,
+    .pagina-sopa-de-letras #start-game-btn {
+        width: 100%;
+    }
+
+    .pagina-sopa-de-letras #game-container {
+        gap: 14px;
+    }
+
+    .pagina-sopa-de-letras #grid-container {
+        padding: 8px;
+    }
+
+    .pagina-sopa-de-letras #letter-grid {
+        gap: 4px;
+    }
+
+    .pagina-sopa-de-letras .cell {
+        border-radius: 5px;
+        font-size: clamp(9px, 3.5vw, 16px);
+    }
+
+    .pagina-sopa-de-letras #word-list-container {
+        padding: 14px 12px;
+    }
+
+    .pagina-sopa-de-letras .game-controls button {
+        padding: 10px 14px;
+    }
+
+    .pagina-sopa-de-letras .modal {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 420px) {
+    .pagina-sopa-de-letras .contenido {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .pagina-sopa-de-letras #grid-container {
+        padding: 5px;
+    }
+
+    .pagina-sopa-de-letras #letter-grid {
+        gap: 2px;
+    }
+
+    .pagina-sopa-de-letras .cell {
+        font-size: 10px;
+        border-radius: 3px;
+    }
+
+    .pagina-sopa-de-letras #game-stats {
+        gap: 6px;
+    }
+
+    .pagina-sopa-de-letras .game-controls {
+        gap: 8px;
+    }
+}
