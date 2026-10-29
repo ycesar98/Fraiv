@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraiv | Ajedrez</title>
+    <link rel="stylesheet" href="../css/comun.css">
+    <link rel="stylesheet" href="../css/ajedrez.css">
+</head>
+<body>
+    <header class="cabecera">
+        <a class="marca" href="../index.html" aria-label="Fraiv, ir a Inicio">
+            <img class="logo-fraiv" src="../assets/logos/logo-fraiv-bordeblanco.png" alt="">
+            <span>Fraiv</span>
+        </a>
+        <div class="perfil-contenedor">
+            <div class="perfil-trigger" id="perfil-trigger">
+                <img src="../assets/logos/Icono de perfil.png" alt="Perfil de usuario" class="avatar-perfil">
+            </div>
+            <div class="perfil-dropdown" id="perfil-dropdown"></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="titulo-juego">
+            <h1>Ajedrez</h1>
+            <span class="etiqueta">Dificultad: difícil</span>
+        </section>
+
+        <section class="tarjeta instrucciones" aria-labelledby="instr-title">
+            <h2 id="instr-title">Cómo se juega</h2>
+            <ul>
+                <li>Juegas contra el ordenador. Toca una de tus piezas y después la casilla de destino. Puedes elegir blancas o negras.</li>
+                <li>Ganas dando jaque mate. Pierdes si te dan jaque mate o si agotas los 90 segundos de tu turno. Las tablas son empate.</li>
+                <li>Victoria: +30 puntos. Derrota: −30 puntos. Empate: 0 puntos.</li>
+                <li>Reiniciar o abandonar una partida no suma ni resta puntos.</li>
+            </ul>
+        </section>
+
+        <div class="layout">
+            <section class="board-wrap" aria-label="Tablero">
+                <div id="board" role="group" aria-label="Tablero de ajedrez"></div>
+                <div class="promo" id="promo" role="dialog" aria-label="Elegir pieza de promoción" hidden>
+                    <button class="boton" data-p="q" aria-label="Promocionar a dama">♛ Dama</button>
+                    <button class="boton" data-p="r" aria-label="Promocionar a torre">♜ Torre</button>
+                    <button class="boton" data-p="b" aria-label="Promocionar a alfil">♝ Alfil</button>
+                    <button class="boton" data-p="n" aria-label="Promocionar a caballo">♞ Caballo</button>
+                    <button class="boton" data-p="" aria-label="Cancelar promoción">Cancelar</button>
+                </div>
+            </section>
+
+            <aside class="side">
+                <section class="tarjeta" aria-label="Estado de la partida">
+                    <h2>Partida</h2>
+                    <p class="row"><span>Turno</span><strong id="turn">—</strong></p>
+                    <p class="row"><span>Tiempo de tu turno</span><strong id="tiempo">—</strong></p>
+                    <p class="row"><span>Estado</span><strong id="status" role="status" aria-live="polite">Cargando Stockfish…</strong></p>
+                    <p class="error" id="engineMsg" role="alert" hidden></p>
+                </section>
+
+                <section class="tarjeta" id="resultCard" aria-label="Resultado final" hidden>
+                    <h2>Resultado final</h2>
+                    <div class="result" id="result" role="status">
+                        <div id="resultMsg"></div>
+                        <div id="resultPts"></div>
+                    </div>
+                </section>
+
+                <section class="tarjeta" aria-label="Controles">
+                    <h2>Controles</h2>
+                    <label class="field" for="side">Jugar con</label>
+                    <select id="side">
+                        <option value="w" selected>Blancas</option>
+                        <option value="b">Negras</option>
+                    </select>
+                    <div class="controls">
+                        <button class="boton" id="btnReset">Reiniciar partida</button>
+                        <button class="boton" id="btnFlip">Voltear tablero</button>
+                    </div>
+                </section>
+
+                <section class="tarjeta" aria-label="Historial de movimientos">
+                    <h2>Historial de movimientos</h2>
+                    <ol id="history"></ol>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="pie-pagina">
+        <p>Fraiv · Un proyecto de juegos creado en equipo</p>
+    </footer>
+
+    <noscript><p class="error">Esta página necesita JavaScript para funcionar.</p></noscript>
+    <script src="../js/perfil.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <script>window.Chess || document.write('<script src="../js/chess.min.js"><\/script>');</script>
+    <script src="../js/ajedrez.js"></script>
+</body>
+</html>
