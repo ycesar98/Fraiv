@@ -9,7 +9,7 @@ const CONFIG = {
         'JAVASCRIPT', 'INTERNET', 'CÓDIGO', 'ALGORITMO',
         'ESTRUCTURA', 'WEB', 'SISTEMA', 'DATOS',
         'LOGICA', 'SOFTWARE', 'HARDWARE', 'NUBE',
-        'REDIES', 'MEMORIA', 'PIXEL', 'BINARIO'
+        'REDES', 'MEMORIA', 'PIXEL', 'BINARIO'
     ],
     pointsPerWin: 20,
     pointsPerLoss: -20
