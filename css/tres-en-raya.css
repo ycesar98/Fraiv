@@ -13,20 +13,8 @@
     box-sizing: border-box;
 }
 
-.pagina-tres-en-raya .cabecera {
-    border-bottom: 1px solid rgba(167, 169, 190, .25);
-}
-
 .pagina-tres-en-raya .cabecera nav {
     margin-right: auto;
-}
-
-.pagina-tres-en-raya .cabecera nav a {
-    color: var(--parrafo);
-}
-
-.pagina-tres-en-raya .cabecera nav a:hover {
-    color: var(--titulo);
 }
 
 .pagina-tres-en-raya .cabecera a:focus-visible,

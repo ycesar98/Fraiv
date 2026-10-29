@@ -16,12 +16,6 @@
 .pagina-memory h1, .pagina-memory h2 {
   color: var(--titulo); margin: 0;
 }
-.pagina-memory a {
-  color: var(--parrafo);
-}
-.pagina-memory a:hover {
-  color: var(--titulo);
- }
 .pagina-memory a:focus-visible,
 .pagina-memory summary:focus-visible,
 .pagina-memory .boton:focus-visible,
@@ -36,7 +30,6 @@
   align-items: center;
   gap: 16px;
   padding: 12px 16px;
-  border-bottom: 1px solid rgba(167, 169, 190, .25);
 }
 .pagina-memory .logo {
   color: var(--titulo);

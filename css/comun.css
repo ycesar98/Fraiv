@@ -52,6 +52,24 @@ h1, h2, h3 {
     display: inline-block;
 }
 
+.navegacion-cabecera {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.enlace-nav {
+    color: var(--titulo);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.2s ease;
+}
+
+.enlace-nav:hover {
+    color: var(--ilus-resaltado);
+}
+
 .perfil-trigger {
     cursor: pointer;
     display: flex;

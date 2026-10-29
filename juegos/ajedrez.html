@@ -9,15 +9,23 @@
 </head>
 <body>
     <header class="cabecera">
-        <a class="marca" href="../index.html" aria-label="Fraiv, ir a Inicio">
-            <img class="logo-fraiv" src="../assets/logos/logo-fraiv-bordeblanco.png" alt="">
+        <a class="marca" href="../index.html">
+            <img class="logo-fraiv"
+                src="../assets/logos/logo-fraiv-bordeblanco.png"
+                alt="">
             <span>Fraiv</span>
         </a>
-        <div class="perfil-contenedor">
-            <div class="perfil-trigger" id="perfil-trigger">
-                <img src="../assets/logos/Icono de perfil.png" alt="Perfil de usuario" class="avatar-perfil">
+        <div class="navegacion-cabecera">
+            <a class="enlace-nav" href="../index.html">Inicio</a>
+            <div class="perfil-contenedor">
+                <div class="perfil-trigger" id="perfil-trigger">
+                    <img src="../assets/logos/Icono de perfil.png" alt="Perfil de usuario" class="avatar-perfil">
+                </div>
+                <div class="perfil-dropdown" id="perfil-dropdown">
+                    <p>Jugador: <span class="nombre-jugador" id="nombre-jugador">Sin nombre</span></p>
+                    <p>Puntos: <span class="puntos-jugador" id="puntos-jugador">0</span></p>
+                </div>
             </div>
-            <div class="perfil-dropdown" id="perfil-dropdown"></div>
         </div>
     </header>
 
@@ -27,15 +35,15 @@
             <span class="etiqueta">Dificultad: difícil</span>
         </section>
 
-        <section class="tarjeta instrucciones" aria-labelledby="instr-title">
-            <h2 id="instr-title">Cómo se juega</h2>
+        <details class="tarjeta instrucciones" aria-labelledby="instr-title" open>
+            <summary id="instr-title">Cómo se juega</summary>
             <ul>
                 <li>Juegas contra el ordenador. Toca una de tus piezas y después la casilla de destino. Puedes elegir blancas o negras.</li>
                 <li>Ganas dando jaque mate. Pierdes si te dan jaque mate o si agotas los 90 segundos de tu turno. Las tablas son empate.</li>
                 <li>Victoria: +30 puntos. Derrota: −30 puntos. Empate: 0 puntos.</li>
                 <li>Reiniciar o abandonar una partida no suma ni resta puntos.</li>
             </ul>
-        </section>
+        </details>
 
         <div class="layout">
             <section class="board-wrap" aria-label="Tablero">
@@ -86,10 +94,6 @@
             </aside>
         </div>
     </main>
-
-    <footer class="pie-pagina">
-        <p>Fraiv · Un proyecto de juegos creado en equipo</p>
-    </footer>
 
     <noscript><p class="error">Esta página necesita JavaScript para funcionar.</p></noscript>
     <script src="../js/perfil.js"></script>

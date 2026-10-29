@@ -1,68 +1,75 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Memory · Fraiv</title>
-<link rel="stylesheet" href="../css/memory.css">
-<link rel="stylesheet" href="../css/comun.css">
-</head>
-<body class="pagina-memory">
+ <!DOCTYPE html>
+  <html lang="es">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Memory | Fraiv</title>
+      <link rel="stylesheet" href="../css/comun.css">
+      <link rel="stylesheet" href="../css/memory.css">
+  </head>
+  <body class="pagina-memory">
+      <header class="cabecera">
+          <a class="marca" href="../index.html">
+              <img class="logo-fraiv"
+                  src="../assets/logos/logo-fraiv-bordeblanco.png"
+                  alt="">
+              <span>Fraiv</span>
+          </a>
+          <div class="navegacion-cabecera">
+              <a class="enlace-nav" href="../index.html">Inicio</a>
+              <div class="perfil-contenedor">
+                  <div class="perfil-trigger" id="perfil-trigger">
+                      <img src="../assets/logos/Icono de perfil.png" alt="Perfil de usuario" class="avatar-perfil">
+                  </div>
+                  <div class="perfil-dropdown" id="perfil-dropdown">
+                      <p>Jugador: <span class="nombre-jugador" id="nombre-jugador">Sin nombre</span></p>
+                      <p>Puntos: <span class="puntos-jugador" id="puntos-jugador">0</span></p>
+                  </div>
+              </div>
+          </div>
+      </header>
 
-<header class="cabecera">
-  <!-- Logo en proceso: de momento, marca de texto. Enlaces a Inicio: propuesta del documento (nombre del archivo de Inicio pendiente). -->
-  <a class="logo" href="../index.html">Fraiv</a>
-  <nav aria-label="Principal"><a href="../index.html">Inicio</a></nav>
-  <!-- Hueco para el perfil (nombre y puntuación acumulada). Pendiente de integrar con el contrato común. -->
-  <div class="perfil-contenedor">
-    <div class="perfil-trigger" id="perfil-trigger">
-        <img src="../assets/logos/Icono de perfil.png" alt="Perfil de usuario" class="avatar-perfil">
-    </div>
-    <div class="perfil-dropdown" id="perfil-dropdown">
-        <p>Jugador: <span class="nombre-jugador" id="nombre-jugador">Sin nombre</span></p>
-        <p>Puntos: <span class="puntos-jugador" id="puntos-jugador">0</span></p>
-    </div>
-  </div>
-</header>
+      <main class="contenido">
+        <div class="titulo-juego">
+          <h1>Memory</h1>
+          <span class="etiqueta">Dificultad: Fácil</span>
+        </div>
+        <p class="tema">Tema: <b id="tema"></b></p>
 
-<main class="contenido">
-  <div class="titulo-juego">
-    <h1>Memory</h1>
-    <span class="etiqueta">Dificultad: Fácil</span>
-  </div>
-  <p class="tema">Tema: <b id="tema"></b></p>
+        <details class="instrucciones" open>
+          <summary>Cómo se juega</summary>
+          <ul>
+            <li>Toca dos cartas por turno para descubrirlas. Si son iguales, se quedan descubiertas; si no, se vuelven a
+  tapar.</li>
+            <li>Cada selección de dos cartas cuenta como un intento, coincidan o no. Tienes 15 intentos.</li>
+            <li><b>Ganas</b> si encuentras las 6 parejas dentro de los 15 intentos (la última pareja en el intento 15
+  también cuenta).</li>
+            <li><b>Pierdes</b> si se agotan los 15 intentos sin completar el tablero.</li>
+            <li><b>Puntos:</b> ganar suma 10 puntos y perder resta 10. Empezar una partida nueva a mitad de juego no
+  resta puntos.</li>
+            <li>El tema de las cartas cambia de forma aleatoria en cada partida.</li>
+          </ul>
+        </details>
 
-  <details class="instrucciones" open>
-    <summary>Cómo se juega</summary>
-    <ul>
-      <li>Toca dos cartas por turno para descubrirlas. Si son iguales, se quedan descubiertas; si no, se vuelven a tapar.</li>
-      <li>Cada selección de dos cartas cuenta como un intento, coincidan o no. Tienes 15 intentos.</li>
-      <li><b>Ganas</b> si encuentras las 6 parejas dentro de los 15 intentos (la última pareja en el intento 15 también cuenta).</li>
-      <li><b>Pierdes</b> si se agotan los 15 intentos sin completar el tablero.</li>
-      <li><b>Puntos:</b> ganar suma 10 puntos y perder resta 10. Empezar una partida nueva a mitad de juego no resta puntos.</li>
-      <li>El tema de las cartas cambia de forma aleatoria en cada partida.</li>
-    </ul>
-  </details>
+        <div class="barra">
+          <div class="dato"><span>Intentos</span><b id="intentos">0 / 15</b></div>
+          <div class="dato"><span>Parejas</span><b id="parejas">0 / 6</b></div>
+          <button type="button" class="boton" id="btn-reiniciar">Nueva partida</button>
+        </div>
 
-  <div class="barra">
-    <div class="dato"><span>Intentos</span><b id="intentos">0 / 15</b></div>
-    <div class="dato"><span>Parejas</span><b id="parejas">0 / 6</b></div>
-    <button type="button" class="boton" id="btn-reiniciar">Nueva partida</button>
-  </div>
+        <div class="tablero" id="tablero" aria-label="Tablero de cartas"></div>
 
-  <div class="tablero" id="tablero" aria-label="Tablero de cartas"></div>
+        <p class="resultado" id="resultado" role="status" hidden></p>
+      </main>
 
-  <p class="resultado" id="resultado" role="status" hidden></p>
-</main>
+      <dialog id="dialogo-resultado" aria-labelledby="dialogo-titulo">
+        <h2 id="dialogo-titulo"></h2>
+        <p id="dialogo-mensaje"></p>
+        <p class="puntos" id="dialogo-puntos"></p>
+        <button type="button" class="boton" id="btn-otra-vez">Jugar otra vez</button>
+      </dialog>
 
-<dialog id="dialogo-resultado" aria-labelledby="dialogo-titulo">
-  <h2 id="dialogo-titulo"></h2>
-  <p id="dialogo-mensaje"></p>
-  <p class="puntos" id="dialogo-puntos"></p>
-  <button type="button" class="boton" id="btn-otra-vez">Jugar otra vez</button>
-</dialog>
-
-<script src="../js/perfil.js"></script>
-<script src="../js/memory.js"></script>
-</body>
-</html>
+      <script src="../js/perfil.js"></script>
+      <script src="../js/memory.js"></script>
+  </body>
+  </html>

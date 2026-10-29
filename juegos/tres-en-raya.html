@@ -1,76 +1,85 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Tres en Raya · Fraiv</title>
-    <link rel="stylesheet" href="../css/tres-en-raya.css">
-    <link rel="stylesheet" href="../css/comun.css">
-</head>
-<body class="pagina-tres-en-raya">
-    <header class="cabecera">
-        <a class="marca" href="../index.html">Fraiv</a>
-        <nav aria-label="Principal">
-            <a href="../index.html">Inicio</a>
-        </nav>
-        <div class="perfil-contenedor">
-            <div class="perfil-trigger" id="perfil-trigger">
-                <img src="../assets/logos/Icono de perfil.png" alt="Perfil de usuario" class="avatar-perfil">
-            </div>
-            <div class="perfil-dropdown" id="perfil-dropdown">
-                <p>Jugador: <span class="nombre-jugador" id="nombre-jugador">Sin nombre</span></p>
-                <p>Puntos: <span class="puntos-jugador" id="puntos-jugador">0</span></p>
-            </div>
-        </div>
-    </header>
+ <!DOCTYPE html>
+  <html lang="es">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Tres en Raya | Fraiv</title>
+      <link rel="stylesheet" href="../css/comun.css">
+      <link rel="stylesheet" href="../css/tres-en-raya.css">
+  </head>
+  <body class="pagina-tres-en-raya">
+      <header class="cabecera">
+          <a class="marca" href="../index.html">
+              <img class="logo-fraiv"
+                  src="../assets/logos/logo-fraiv-bordeblanco.png"
+                  alt="">
+              <span>Fraiv</span>
+          </a>
+          <div class="navegacion-cabecera">
+              <a class="enlace-nav" href="../index.html">Inicio</a>
+              <div class="perfil-contenedor">
+                  <div class="perfil-trigger" id="perfil-trigger">
+                      <img src="../assets/logos/Icono de perfil.png" alt="Perfil de usuario" class="avatar-perfil">
+                  </div>
+                  <div class="perfil-dropdown" id="perfil-dropdown">
+                      <p>Jugador: <span class="nombre-jugador" id="nombre-jugador">Sin nombre</span></p>
+                      <p>Puntos: <span class="puntos-jugador" id="puntos-jugador">0</span></p>
+                  </div>
+              </div>
+          </div>
+      </header>
 
-    <main class="contenido">
-        <div class="titulo-juego">
-            <h1>Tres en Raya</h1>
-            <span class="etiqueta">Dificultad: Fácil</span>
-        </div>
+      <main class="contenido">
+          <div class="titulo-juego">
+              <h1>Tres en Raya</h1>
+              <span class="etiqueta">Dificultad: Fácil</span>
+          </div>
 
-        <details class="instrucciones" open>
-            <summary>Cómo se juega</summary>
-            <ul>
-                <li>Juegas contra el ordenador. Elige una casilla libre para colocar una X; el ordenador juega con O.</li>
-                <li>Gana una ronda quien consigue tres símbolos iguales en una fila, columna o diagonal. Si se llena el tablero sin ganador, hay empate.</li>
-                <li>La serie termina cuando una persona consigue tres victorias. Los empates no cuentan para la serie.</li>
-                <li><b>Puntos:</b> ganar la serie suma 10 puntos; perderla resta 10. Los empates y las rondas individuales no cambian la puntuación.</li>
-                <li>«Nueva serie» abandona la serie actual sin penalización.</li>
-            </ul>
-        </details>
+          <details class="instrucciones" open>
+              <summary>Cómo se juega</summary>
+              <ul>
+                  <li>Juegas contra el ordenador. Elige una casilla libre para colocar una X; el ordenador juega con
+  O.</li>
+                  <li>Gana una ronda quien consigue tres símbolos iguales en una fila, columna o diagonal. Si se llena
+  el tablero sin ganador, hay empate.</li>
+                  <li>La serie termina cuando una persona consigue tres victorias. Los empates no cuentan para la
+  serie.</li>
+                  <li><b>Puntos:</b> ganar la serie suma 10 puntos; perderla resta 10. Los empates y las rondas
+  individuales no cambian la puntuación.</li>
+                  <li>«Nueva serie» abandona la serie actual sin penalización.</li>
+              </ul>
+          </details>
 
-        <section class="marcador" aria-label="Marcador de la serie">
-            <div class="dato">
-                <span>Tus victorias</span>
-                <b id="victorias-usuario">0</b>
-            </div>
-            <div class="dato">
-                <span>Victorias del ordenador</span>
-                <b id="victorias-ordenador">0</b>
-            </div>
-        </section>
+          <section class="marcador" aria-label="Marcador de la serie">
+              <div class="dato">
+                  <span>Tus victorias</span>
+                  <b id="victorias-usuario">0</b>
+              </div>
+              <div class="dato">
+                  <span>Victorias del ordenador</span>
+                  <b id="victorias-ordenador">0</b>
+              </div>
+          </section>
 
-        <div class="tablero" id="board" role="group" aria-label="Tablero de tres en raya">
-            <button class="celda" type="button" data-index="0" aria-label="Casilla 1 vacía"></button>
-            <button class="celda" type="button" data-index="1" aria-label="Casilla 2 vacía"></button>
-            <button class="celda" type="button" data-index="2" aria-label="Casilla 3 vacía"></button>
-            <button class="celda" type="button" data-index="3" aria-label="Casilla 4 vacía"></button>
-            <button class="celda" type="button" data-index="4" aria-label="Casilla 5 vacía"></button>
-            <button class="celda" type="button" data-index="5" aria-label="Casilla 6 vacía"></button>
-            <button class="celda" type="button" data-index="6" aria-label="Casilla 7 vacía"></button>
-            <button class="celda" type="button" data-index="7" aria-label="Casilla 8 vacía"></button>
-            <button class="celda" type="button" data-index="8" aria-label="Casilla 9 vacía"></button>
-        </div>
+          <div class="tablero" id="board" role="group" aria-label="Tablero de tres en raya">
+              <button class="celda" type="button" data-index="0" aria-label="Casilla 1 vacía"></button>
+              <button class="celda" type="button" data-index="1" aria-label="Casilla 2 vacía"></button>
+              <button class="celda" type="button" data-index="2" aria-label="Casilla 3 vacía"></button>
+              <button class="celda" type="button" data-index="3" aria-label="Casilla 4 vacía"></button>
+              <button class="celda" type="button" data-index="4" aria-label="Casilla 5 vacía"></button>
+              <button class="celda" type="button" data-index="5" aria-label="Casilla 6 vacía"></button>
+              <button class="celda" type="button" data-index="6" aria-label="Casilla 7 vacía"></button>
+              <button class="celda" type="button" data-index="7" aria-label="Casilla 8 vacía"></button>
+              <button class="celda" type="button" data-index="8" aria-label="Casilla 9 vacía"></button>
+          </div>
 
-        <p class="estado" id="status" role="status" aria-live="polite">Preparando partida…</p>
-        <div class="acciones">
-            <button class="boton" id="reset-btn" type="button">Nueva serie</button>
-            <a class="boton boton-secundario" href="../index.html">Volver al inicio</a>
-        </div>
-    </main>
-    <script src="../js/perfil.js"></script>
-    <script src="../js/tres-en-raya.js"></script>
-</body>
-</html>
+          <p class="estado" id="status" role="status" aria-live="polite">Preparando partida…</p>
+          <div class="acciones">
+              <button class="boton" id="reset-btn" type="button">Nueva serie</button>
+              
+          </div>
+      </main>
+      <script src="../js/perfil.js"></script>
+      <script src="../js/tres-en-raya.js"></script>
+  </body>
+  </html>
